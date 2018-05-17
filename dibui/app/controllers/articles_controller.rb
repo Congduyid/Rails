@@ -1,6 +1,4 @@
 class ArticlesController < ApplicationController
-  # http_basic_authenticate_with name: "123", password: "123", only: :edit
-
 
 	def index
 		 @articles = Article.all
