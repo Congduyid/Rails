@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .products {
 
+ 
+    a:hover, a:active {
+        background-color: #17d450a9;
+    }
+
     input{
         width: 25%;
         padding: 12px 20px;
@@ -25,7 +30,6 @@
     width: 60px;
     height: 70px;
     }
-
 
     .list_description {
     width: 60%;
@@ -50,7 +54,7 @@
     padding-left: 5em;
     }
     .list_line_even {
-    background:#C8E6C9;
+    background:rgb(179, 247, 181);
     }
     .list_line_odd {
     background:#A5D6A7;

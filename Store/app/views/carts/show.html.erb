@@ -1,27 +1,41 @@
 <p id="notice"><%= notice %></p>
 <h2>Your Pragmatic Cart</h2><hr>
 
-<table>
+<div class="w3-container">
+<table class="w3-table-all w3-hoverable">
+
         <thead>
           <tr>
               <th>ID item</th>
               <th>Name</th>
               <th>Item Price</th>
+              <th>Item quantity</th>
           </tr>
         </thead>
-
         <tbody>
         <% @cart.line_items.each do |item| %>
           <tr>
           <td><%= item.product.id  %></td>
             <td><%= item.product.title %></td>
-            <td><%= item.product.price %></td>
+            <td><%= number_to_currency(item.product.price) %></td>
+            <td>x<%= item.quantity %></td>            
           </tr>
           <% end %>
 
-        </tbody>
-      </table>
+          <tr class="w3-light-green">
+          <td colspan="2" style="font-size: 20px" >Total</td>
+          <td  style="font-size: 25px" class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
+          <td></td>
+          </tr>
 
+        </tbody>
+
+
+
+      </table>
+      <%= button_to 'Empty cart', @cart, method: :delete,
+      data: { confirm: 'Are you sure?' } %>
+</div>
 <%= link_to 'Back', carts_path %>
 
 

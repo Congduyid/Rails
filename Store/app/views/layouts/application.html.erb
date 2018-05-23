@@ -7,7 +7,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  
+
+    </head>
   <body class='<%= controller.controller_name %>'>
 
   <div id="banner">
@@ -18,18 +22,15 @@
 <ul>
 <li><a href="/products">Home</a></li>
 <li><a href="/store/index">Store</a></li>
-<li><a href="http://www..../news">News</a></li>
+<li><a href="/store/index">News</a></li>
 <li><a href="http://www..../contact">Contact</a></li>
-
+<p style="padding-left: 89.5%"> <%= Time.now.strftime("%d/%m/%Y --  %I:%M%p") %> </p>
 </ul>
-
-<p> <%= Time.now %> </p>
 
 </div>
 <%= image_tag 'https://vnn-imgs-f.vgcloud.vn/2018/05/16/09/chi-pu-hoa-nu-hoang-ma-kinh-di-trong-mv-doa-hoa-hong-1.jpg', alt: 'Chi pu', :size=>"90x150" %>
 
 <div id="main">
-
     <%= yield %>
   </body>
 </html>
