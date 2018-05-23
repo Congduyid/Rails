@@ -8,8 +8,28 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body class='<%= controller.controller_name %>'>
 
-  <body>
+  <div id="banner">
+<span class="title"><%= @page_title %></span>
+</div>
+<div id="columns">
+<div id="side">
+<ul>
+<li><a href="/products">Home</a></li>
+<li><a href="http://www..../faq">Questions</a></li>
+<li><a href="http://www..../news">News</a></li>
+<li><a href="http://www..../contact">Contact</a></li>
+
+</ul>
+
+<p> <%= Time.now %> </p>
+
+</div>
+<%= image_tag 'https://vnn-imgs-f.vgcloud.vn/2018/05/16/09/chi-pu-hoa-nu-hoang-ma-kinh-di-trong-mv-doa-hoa-hong-1.jpg', alt: 'Chi pu', :size=>"90x150" %>
+
+<div id="main">
+
     <%= yield %>
   </body>
 </html>
