@@ -6,7 +6,7 @@
 
         <thead>
           <tr>
-              <th>ID item</th>
+              <th>Image</th>
               <th>Name</th>
               <th>Item Price</th>
               <th>Item quantity</th>
@@ -15,11 +15,13 @@
         <tbody>
         <% @cart.line_items.each do |item| %>
           <tr>
-          <td><%= item.product.id  %></td>
+          <td><%= image_tag(item.product.image_url, :size=>"120x100") %>
+          </td>
             <td><%= item.product.title %></td>
             <td><%= number_to_currency(item.product.price) %></td>
             <td>x<%= item.quantity %></td>            
           </tr>
+
           <% end %>
 
           <tr class="w3-light-green">
