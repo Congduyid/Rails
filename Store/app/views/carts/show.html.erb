@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<h2>Your Pragmatic Cart</h2><hr>
+
+<table>
+        <thead>
+          <tr>
+              <th>ID item</th>
+              <th>Name</th>
+              <th>Item Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @cart.line_items.each do |item| %>
+          <tr>
+          <td><%= item.product.id  %></td>
+            <td><%= item.product.title %></td>
+            <td><%= item.product.price %></td>
+          </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+
+<%= link_to 'Back', carts_path %>
+
+
