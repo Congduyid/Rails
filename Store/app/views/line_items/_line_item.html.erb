@@ -1,6 +1,10 @@
+<% if line_item == @current_item %>
+<tr id="current_item">
+<% else %>
+<tr>
+<% end %>
 <table class="w3-table-all">
 <tr class="w3-gray">
-
 <tr>
 <td><%= line_item.quantity %>&times;</td>
 <td><%= line_item.product.title %></td>

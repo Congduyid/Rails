@@ -1,7 +1,16 @@
+#---
+# Excerpted from "Agile Web Development with Rails 5",
+# published by The Pragmatic Bookshelf.
+# Copyrights apply to this code. It may not be used to create training material,
+# courses, books, articles, and the like. Contact us if you are in doubt.
+# We make no guarantees that this code is fit for any purpose.
+# Visit http://www.pragmaticprogrammer.com/titles/rails5 for more book information.
+#---
 class LineItemsController < ApplicationController
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
   include CurrentCart
   before_action :set_cart, only: [:create]
+  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+
   # GET /line_items
   # GET /line_items.json
   def index
@@ -27,14 +36,20 @@ class LineItemsController < ApplicationController
   def create
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product)
+
     respond_to do |format|
       if @line_item.save
-format.html { redirect_to store_index_url }
-format.json { render :show,
-status: :created, location: @line_item }
+        format.html { redirect_to store_index_url }
+
+        format.js { @current_item = @line_item }
+
+        format.json { render :show,
+          status: :created, location: @line_item }
+
       else
         format.html { render :new }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        format.json { render json: @line_item.errors,
+          status: :unprocessable_entity }
       end
     end
   end
@@ -58,7 +73,7 @@ status: :created, location: @line_item }
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to line_items_url, notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to store_index_url }
       format.json { head :no_content }
     end
   end
@@ -69,8 +84,10 @@ status: :created, location: @line_item }
       @line_item = LineItem.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow the white
+    # list through.
     def line_item_params
-      params.require(:line_item).permit(:product_id)    
+      params.require(:line_item).permit(:product_id)
     end
+  #...
 end

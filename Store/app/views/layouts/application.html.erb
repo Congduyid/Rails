@@ -18,19 +18,23 @@
 <div id="columns">
 <div id="side">
 
-
 <ul>
 <li><a href="/products">Home</a></li>
 <li><a href="/store/index">Store</a></li>
 <li><a href="/carts/">Carts</a></li>
+
 <div class="dropdown">
     <button onclick="myFunction()" class="dropbtn"> <img src="https://visualpharm.com/assets/482/Shopping Cart-595b40b65ba036ed117d241c.svg" alt="shopping cart" class="icon-huge" width="30" height="30"> Your Cart</button>
       <div id="myDropdown" class="dropdown-content">
-      <div id="cart">
+     
+      <div id="cart"
       <% if @cart %>
-      <%= render @cart %>
+      <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+        <%= render @cart %>
       <% end %>
-      </div>
+    <% end %>
+        </div>
+
       </div>
     </div>
     
