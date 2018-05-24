@@ -9,8 +9,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-  
-
     </head>
   <body class='<%= controller.controller_name %>'>
 
@@ -19,18 +17,103 @@
 </div>
 <div id="columns">
 <div id="side">
+
+
 <ul>
 <li><a href="/products">Home</a></li>
 <li><a href="/store/index">Store</a></li>
 <li><a href="/carts/">Carts</a></li>
-<p style="padding-left: 89.5%"> <%= Time.now.strftime("%d/%m/%Y --  %I:%M%p") %> </p>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn"> <img src="https://visualpharm.com/assets/482/Shopping Cart-595b40b65ba036ed117d241c.svg" alt="shopping cart" class="icon-huge" width="30" height="30"> Your Cart</button>
+      <div id="myDropdown" class="dropdown-content">
+      <div id="cart">
+      <% if @cart %>
+      <%= render @cart %>
+      <% end %>
+      </div>
+      </div>
+    </div>
+    
+    <script>
+   
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+    
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+    </script>
+
+
+
 </ul>
+
 
 </div>
 
+<div id="ec">
 <%= image_tag 'https://vnn-imgs-f.vgcloud.vn/2018/05/16/09/chi-pu-hoa-nu-hoang-ma-kinh-di-trong-mv-doa-hoa-hong-1.jpg', alt: 'Chi pu', :size=>"100x150" %>
 
-<div id="main">
-    <%= yield %>
-  </body>
+
+</div>
+
+<div id="main"> 
+
+    <%= yield %>    
+    </body>
+    
+    
+    <style>
+    .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: #2980B9;
+    }
+    
+    .dropdown {
+        padding-left: 85%;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    .dropdown a:hover {background-color: #ddd}
+    
+    .show {display:block;}
+    </style>
 </html>
+
+

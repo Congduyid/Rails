@@ -1,0 +1,19 @@
+
+<h2>Your Cart</h2>
+<table class="w3-table-all">
+<tr class="w3-blue">
+<th>Quantity</th>
+<th>Name</th>
+<th>Price</th>
+
+<%= render(cart.line_items) %>
+</table>
+
+<tr class="total_line">
+<b><td colspan="2">Total</td>
+<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
+</tr></b><center>
+<%= button_to 'Empty cart', cart, method: :delete,
+data: { confirm: 'Are you sure?' } %>
+</center>
+

@@ -16,6 +16,12 @@
  *= require_self
  */
 
+#cart{
+
+float: right;
+
+}
+
 
  #main {
     padding: 1em;
