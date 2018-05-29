@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1>Products</h1>
+<h1><%= t "products.title" %></h1>
 <table>
 <% @products.each do |product| %>
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
@@ -14,13 +14,13 @@ length: 80) %></dd>
 </dl>
 </td>
 <td class="list_actions">
-<%= link_to 'Show', product %><br/>
-<%= link_to 'Edit', edit_product_path(product) %><br/>
-<%= link_to 'Destroy', product, method: :delete,
-data: { confirm: 'Are you sure?' } %>
+<%= link_to t('products.show'), product %><br/>
+<%= link_to t('products.edit'), edit_product_path(product) %><br/>
+<%= link_to t('products.Destroy'), product, method: :delete,
+data: { confirm: t('products.confirm') } %>
 </td>
 </tr>
 <% end %>
 </table>
 <br />
-<%= link_to 'New product', new_product_path %>
+<%= link_to t('products.new'), new_product_path %>

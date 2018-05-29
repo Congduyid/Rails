@@ -11,19 +11,19 @@
   </div>
   <% end %>
   <div class="field">
-  <%= f.label :title %>
+  <%= f.label t('new.title') %>
   <%= f.text_field :title %>
   </div>
   <div class="field">
-  <%= f.label :description %>
+  <%= f.label t('new.description') %>
 <%= f.text_area :description, rows: 10, cols: 38 %>
 </div>
 <div class="field">
-<%= f.label :image_url %>
+<%= f.label t('new.image') %>
 <%= f.text_field :image_url %>
 </div>
 <div class="field">
-<%= f.label :price %>
+<%= f.label t('new.price') %>
 <%= f.text_field :price %>
 </div>
 <div class="actions">

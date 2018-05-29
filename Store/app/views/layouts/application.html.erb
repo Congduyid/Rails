@@ -27,27 +27,24 @@
 <div id="side">
 
 <ul>
-<li><a href="/products">Home</a></li>
-<li><a href="/store/index">Store</a></li>
-<li><a href="/carts/">Carts</a></li>
+<li><a href="/products"><%= t "menu.home" %></a></li>
+<li><a href="/store/index"><%= t "menu.products" %></a></li>
+<li><a href="/carts/"><%= t "menu.carts" %></a></li>
 
 
 
-<% if !session[:user_id] %><li><a class="nut" href="/login" > <span>Login </span></a>
+<% if !session[:user_id] %><li><a class="nut" href="/login" > <span><%= t "menu.login" %> </span></a>
 </li>
 <% end %>
-
 <% if session[:user_id] %>
-<li><%= link_to 'Orders',
-orders_path
-%></li>
-<li><%= link_to 'Products', products_path %></li>
-<li><%= link_to 'Users',
-users_path
-%></li>
+<% @hihi = User.find(session[:user_id]) %>
 
-<%= button_to 'Logout', logout_path, method: :delete , class: 'nut' %>
+<li><%= link_to t('menu.orders'),orders_path %></li>
+<li><%= link_to t('menu.products'), products_path %></li>
+<li><%= link_to t('menu.users'),users_path%></li>
 
+<%= button_to t('menu.logout'), logout_path, method: :delete , class: 'nut' %>
+<button class='nut2'> <%= t "menu.welcome" %>! <%= @hihi.name %> </button>
 
 
 
@@ -73,12 +70,8 @@ users_path
 <% end %>
   </div>
 </div>
+
 </div>
-
-
-
-
-
 
 </div>
 </div>
@@ -86,49 +79,12 @@ users_path
 </div>
 
 <div id="main"> 
-    <%= yield %>    
+
+<p><b>I18n.locale:</b>
+<%= I18n.locale %>
+
+    <%= yield %>   
+
     </body>
     
 </html>
-<style>
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 8px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.dropdown {
-    position: absolute;
-    display: inline-block;
-  }
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 100;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
-</style>

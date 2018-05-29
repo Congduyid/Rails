@@ -13,9 +13,11 @@
 <tr class="total_line">
 <b><td colspan="2">Total</td>
 <td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
-</tr></b><center>
-<%= button_to "Checkout", new_order_path, method: :get %>
+</tr></b>
+<center><ul><li>
+<%= button_to "Checkout", new_order_path, method: :get, :class=>"nut" %> </li><li>
 <%= button_to 'Empty cart', cart, method: :delete,
-data: { confirm: 'Are you sure?' } %>
+data: { confirm: 'Are you sure?' }, :class=>"nut"  %></li>
+</ul>
 </center>
 <% end %>
