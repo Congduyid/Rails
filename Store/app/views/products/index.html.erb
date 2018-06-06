@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1><%= t "products.title" %></h1>
 <table>
+<div id="danhsachsp">
 <% @products.each do |product| %>
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 <td>
@@ -14,13 +15,16 @@ length: 80) %></dd>
 </dl>
 </td>
 <td class="list_actions">
-<%= link_to t('products.show'), product %><br/>
-<%= link_to t('products.edit'), edit_product_path(product) %><br/>
+<%= link_to t('products.show'), product %>
+<%= link_to t('products.edit'), edit_product_path(product) %>
 <%= link_to t('products.Destroy'), product, method: :delete,
 data: { confirm: t('products.confirm') } %>
 </td>
 </tr>
 <% end %>
+</div>
 </table>
+
+
 <br />
 <%= link_to t('products.new'), new_product_path %>

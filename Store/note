@@ -1,0 +1,17 @@
+//Web ban apple
+
++ Khách hàng
+    - Xem chi tiết sản phẩm
+    - Đặt hàng (Nhận mail xác nhận đơn hàng)
+    - Lọc sản phẩm theo giá,loại
+    - Giỏ hàng
+    - Tìm kiếm sản phẩm theo tên
+    - Comment đánh giá sản phẩm
+    - Nhúng googe maps,hỗ trợ online, mail marketing (mailchimp)
+    - Xem trang tin tức
+    - Like,share
++ Admin
+    - Login
+    - Thêm, xóa, sửa sản phẩm
+    - Xem,xóa đơn hàng
+    - Tạo khuyến mãi
